@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CrossConnect Domestic Purchase Order</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        html {
+            -webkit-print-color-adjust: exact;
+        }
+
+        .container {
+            /* height: 842pt !important; */
+            width: 595pt !important;
+            /* to centre page on screen*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body {
+            font-size: 8pt;
+        }
+
+        body ul {
+            list-style: none;
+            padding: 0pt;
+            margin-bottom: 0pt;
+
+        }
+
+        body ol {
+            padding: 0pt;
+            margin-bottom: 0pt;
+            margin-left: 9pt;
+            line-height: 15pt;
+        }
+
+        body ol span {
+            color: #0045AC;
+            cursor: poi;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .flex2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-align: right;
+        }
+
+        .logo svg {
+            width: 55pt;
+        }
+
+        .vl {
+            border-left: 1pt solid #CBD0D2;
+            height: auto;
+        }
+
+        .main-heading {
+            margin-bottom: 30pt;
+        }
+
+        .main-heading h1 {
+            color: #0E3346 !important;
+            text-align: center;
+            font-size: 18pt;
+            font-weight: 600;
+            margin: 0pt;
+        }
+
+        .main-heading2 h1 {
+            color: #0E3346;
+            font-size: 10pt;
+            font-weight: 600;
+            margin-bottom: 0pt;
+        }
+
+        .main-heading2 {
+            margin-bottom: 13pt;
+        }
+
+        .sub-heading {
+            color: var(--black-1, #1E2122);
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .sub-heading2 h1 {
+            color: var(--primary, #0E3346);
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            font-size: 10pt;
+
+        }
+
+        .address {
+            padding: 0pt;
+        }
+
+        .contact {
+            border-radius: 6pt;
+            background: #F7F9FA;
+            padding: 12pt 20pt;
+        }
+
+        .contact svg {
+            margin-bottom: -3pt;
+        }
+
+        .main-content {
+            padding: 33pt;
+        }
+
+        .sub-content p {
+            margin-bottom: 10px;
+        }
+
+        .top-address-details {
+            margin-bottom: 25px;
+        }
+
+        .address-details h4 {
+            font-size: 13px;
+        }
+
+        /* ************** TABLE ************ */
+        table {
+            margin-bottom: 35pt;
+        }
+
+        table,
+        th,
+        td {
+            border: 1pt solid black;
+            border-collapse: collapse;
+        }
+
+
+
+        thead tr th {
+            padding: 14pt 5pt !important;
+        }
+
+        tbody tr td {
+            padding: 8pt 5pt !important;
+        }
+
+        .table-2 thead tr th {
+            padding: 14pt 7pt !important;
+        }
+
+        .table-2 tbody tr td {
+            padding: 14pt 5pt !important;
+        }
+
+        table tr th {
+            background: #0e3346b3 !important;
+            color: #fff;
+        }
+
+        /* ************** TABLE ************ */
+
+        .bottom-address {
+            background: #F7F9FA;
+            padding: 12pt 20pt;
+            margin-bottom: 40px;
+        }
+
+        .semibold {
+            font-weight: 600;
+        }
+
+        .bottom-content {
+            padding: 16pt;
+        }
+
+        .sub-text h1 {
+            color: var(--black-1, #1E2122);
+            font-size: 8pt;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0pt;
+            margin-top: 6pt;
+        }
+
+        .tc-content h5 {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .Date-time p {
+            margin-bottom: 4pt;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .sign {
+            margin-bottom: 60pt;
+        }
+
+        .footer {
+            bottom: 0pt !important;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .customer {
+            margin-bottom: 10px;
+        }
+
+        .company-name {
+            margin-bottom: 10px !important;
+        }
+
+        .terms-conditions {
+            margin-bottom: 60px;
+        }
+
+        .signature {
+            margin-bottom: 42px;
+        }
+
+        .ad-heading p {
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .list-td {
+            padding: 0px !important;
+        }
+
+        .list-items li {
+            border-bottom: 0.5px solid grey;
+            padding: 8px;
+        }
+
+        .list-items li:last-child {
+            border-bottom: none;
+
+        }
+
+        .t-right li {
+            text-align: right;
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .semi-bold {
+            font-weight: 500;
+        }
+
+        .margin-0 {
+            margin-bottom: 0px;
+        }
+
+        .racks {
+            font-size: 10px;
+        }
+
+        .list-td {
+            padding: 0px !important;
+        }
+
+        .list-items li {
+            border-bottom: 0.5px solid grey;
+            padding: 8px;
+        }
+
+        .list-items li:last-child {
+            border-bottom: none;
+
+        }
+
+        .bottom-content {
+            background: #F7F9FA;
+            padding: 16pt;
+        }
+    </style>
+</head>
+
+<body style="display:block; clear:both; page-break-after:always;">
+    <!-- ***************** PAGE 1 ************************************************** -->
+    <div class="container page 1">
+
+        <div class="main-content">
+            <div class="top-header">
+            </div>
+            <div class="main-heading">
+                <h1>Purchase Order</h1>
+
+            </div>
+            <div class="top-address-details">
+                <div class="flex2">
+                    <div class="address">
+                        <p class="sub-heading">To</p>
+                        <ul>
+                            <li>SIFY TECHNOLOGIES LIMITED,</li>
+                            <li>2nd floor Tidel Park, </li>
+                            <li>NO.4 Rajiv Gandhi Salai, </li>
+                            <li>Tharamani,Chennai-600113</li>
+                        </ul>
+                    </div>
+                    <div>
+
+                        <ul>
+                            <li>
+                                <span class="sub-heading">PO Date:</span> {{poDate}}
+                            </li>
+                            <li>
+                                <span class="sub-heading">PO Number:</span> {{poRefNo}}
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ******** BOTTOM ADDRESS ********* -->
+            <div class="address-details">
+                <h4>Address Details</h4>
+                <div class="bottom-address">
+                    <div class="flex">
+                        <div>
+                            <div class="add">
+                                <div class="ad-heading">
+                                    <p>Billing Details</p>
+                                </div>
+                                <ul>
+
+                                    <li> {{#if billingAddress.address1}}{{billingAddress.address1}}{{/if}}
+                                        {{#if billingAddress.address2}}, {{billingAddress.address2}}{{/if}}
+                                        {{#if billingAddress.address3}}, {{billingAddress.address3}}{{/if}}</li>
+                                    <li> {{#if billingAddress.city}}{{billingAddress.city}}{{/if}}
+                                        {{#if billingAddress.state}}, {{billingAddress.state}}{{/if}}
+                                        {{#if billingAddress.postalCode}} - {{billingAddress.postalCode}}{{/if}}
+                                        . </li>
+                                </ul>
+
+                                <ul>
+                                    <li>
+                                        <span class="sub-heading"> GST:</span>
+                                        {{#if billingAddress.gstNo}}{{billingAddress.gstNo}}{{/if}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vl"></div>
+                        <div>
+
+                            <div class="add">
+                                <div class="ad-heading">
+                                    <p>Shipping Details</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        {{#if shippingAddress.address1}}{{shippingAddress.address1}}{{/if}}
+                                        {{#if shippingAddress.address2}}, {{shippingAddress.address2}}{{/if}}
+                                        {{#if shippingAddress.address3}}, {{shippingAddress.address3}}{{/if}}
+                                    </li>
+
+                                    <li>
+                                        {{#if shippingAddress.city}}{{shippingAddress.city}}{{/if}}
+                                        {{#if shippingAddress.state}}, {{shippingAddress.state}}{{/if}}
+                                        {{#if shippingAddress.postalCode}}-{{shippingAddress.postalCode}}{{/if}}.
+                                    </li>
+                                </ul>
+
+                                <ul>
+                                    <li>
+                                        <span class="sub-heading"> GST:</span>
+                                        {{#if shippingAddress.gstNo}}{{shippingAddress.gstNo}}{{/if}}
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sub-content">
+                <p>We are pleased to place the order for Cross Connect for the below details.</p>
+            </div>
+            <!-- ******** TABLE ********* -->
+            <div class="table sify-service">
+                <table class="table table-bordered" style="width:100%">
+                    <colgroup>
+                        <col width="5%">
+                        <col width="30%">
+                        <col width="15%">
+                        <col width="15%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <span>S.No</span>
+                            </th>
+                            <th scope="col">
+                                <span>Product</span>
+                            </th>
+                            <th scope="col">
+                                <span>One Time Charges (OTC)</span>
+                            </th>
+                            <th scope="col">
+                                <span>Annual Recurring Charges (ARC)</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>{{plan1.type}}</td>
+                            <td>₹{{plan1.otc}}</td>
+                            <td>₹{{plan1.arc}}</td>
+                        </tr>
+                          {{#if plan2}}<tr>
+                            <td>2</td>
+                            <td>{{plan2.type}}</td>
+                            <td>₹{{plan2.otc}}</td>
+                            <td>₹{{plan2.arc}}</td>
+                        </tr>
+                        {{/if}}
+                        <tr class="sub-heading">
+                            <td style="    vertical-align: middle;text-align: end;" colspan="2">Total</td>
+                            <td>{{#if totalOtc}} ₹{{totalOtc}} {{else}} - {{/if}}</td>
+                            <td>{{#if totalArc}} ₹{{totalArc}} {{else}} - {{/if}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ***************** PAGE 2 ************************************************** -->
+   <div style="page-break-before: always;margin-top: 30px;"></div>
+    <div class="container page 2">
+        <div class="main-content summary-net">
+            <!-- ******** TERMS AND CONDITION ********* -->
+            <div class="main-heading2">
+                <h1>Terms and conditions</h1>
+            </div>
+            <div class="terms-conditions">
+
+                <div class="content">
+                    <div class="tc-content">
+                        <div>
+                            <h5>Commercials:</h5>
+                            <ol>
+                                <li>This proposal is valid till {{validTillDate}}.</li>
+                                <li>All commercial values are in INR.</li>
+                                <li>Commercials mentioned in this proposal do not include taxes and other such levies.
+                                    Taxes as applicable would be levied extra as per prevailing rates.</li>
+                                <li>All items where there is sales of either Hardware, Software, Support, AMC, or
+                                    Subscription, the prices quoted in the specific line do not include any scope for
+                                    implementation.</li>
+                                <li>Customer shall accept partial delivery of materials as and when Sify receives from
+                                    the OEM.</li>
+                                <li>The Customer shall provide the GST details in the Order. If the Customer fails to
+                                    provide or furnish GST details, Sify has the right to raise invoice treating
+                                    Customer as unregistered for the purpose of GST and the Operating Party shall pay
+                                    the charges as per the Invoice without protest or reservations.</li>
+                                <li>The Customer agrees to validate & confirm the bill/invoice submitted by Sify within
+                                    7 days of receipt of invoice. In case of billing dispute, the Customer shall submit
+                                    a proof of discrepancy within 15 days of receipt of invoice.</li>
+                            </ol>
+
+                        </div>
+                        <div>
+                            <h5>Contract Termination::</h5>
+                            <ol>
+                                <li>The term of the service/agreement shall commence on the effective date or on
+                                    delivery of service whichever is earlier and shall continue in full force until
+                                    terminated by either Party in accordance with the terms and conditions of the
+                                    Agreement.</li>
+                                <li>Unless the Parties agree otherwise as evidenced in the Order and/or Service
+                                    Schedule, upon expiry of Contract Term or extended Term whichever is later, Sify has
+                                    the right to automatically renew unless and until terminated by the customer upon
+                                    thirty (30) days of written notice. If the Customer chooses to terminate any links
+                                    or services, it is the obligation of the Customer to communicate or inform in
+                                    writing to sify.creditcontrol@sifycorp.com failing which Sify will be entitled to
+                                    claim the applicable charges for the links or services availed by the Customer until
+                                    the date of customer communicating the disconnection to
+                                    sify.creditcontrol@sifycorp.com.</li>
+                                <li>Sify may, without terminating this Agreement and without liability (solely as a
+                                    result of exercising its right) immediately suspend whole or part of Service it
+                                    provides to Customer under this Agreement until further notice if:
+                                    <ol type="a">
+                                        <li>Customer fails to pay any sums due under this Agreement; or</li>
+                                        <li>Customer commits a breach of any material obligation under this Agreement
+                                            and in the case of a remediable breach, fails to remedy such breach after
+                                            receiving thirty (30) days’ written notice to do so.</li>
+                                        <li>Sify is obliged to suspend whole or part of Service in compliance with an
+                                            order, instruction or request of the Government Authority, emergency
+                                            services organization or other competent authority; or</li>
+                                        <li>Sify needs to safeguard the integrity and security of its network and/or
+                                            repair, maintain or enhance the performance of its network; or</li>
+                                        <li>Sify needs to repair a fault in its network or in any network equipment as a
+                                            result of any unplanned outage or any other reason beyond Sify’s control.
+                                            Where Sify suspends whole or part of Service under Clauses (a) and (b)
+                                            above, Charges for the relevant Service will continue to accrue during the
+                                            period of suspension until Customer cures the breach and Sify reactivates
+                                            the provision of Service.</li>
+                                    </ol>
+                                </li>
+                                <li>The billing type, termination and disputes T&C are tabulated below against each
+                                    product.</li>
+                                <li>Termination request shall be accepted only if sent to credit.control@sifycorp.com
+                                    with a copy to the account manager or Service request through the Customer portal.
+                                    Such termination of service would be acknowledged and confirmed by Sify, which will
+                                    be deemed date of termination of service and charges will cease to apply from that
+                                    date.</li>
+                                <li>Any dispute or claims arising out of or in connection with this Agreement, including
+                                    but not limited to any question regarding its existence, validity or termination,
+                                    shall be referred to sole arbitrator appointed by Sify as per Indian Arbitration Act
+                                    for the time being in force. The arbitration shall take place in Chennai and be
+                                    conducted in English. The award of the arbitration shall be final and binding on
+                                    both parties.</li>
+                                <li>All such dispute & differences that may arise between the parties hereto as to the
+                                    meaning, construction or effect of the terms & provisions of this agreement or as to
+                                    the right or claim of the either party under this agreement shall be referred to the
+                                    sole arbitration by an executive nominated by SIFY. The same will be settled by
+                                    Arbitration conducted in accordance with the Provisions of Arbitration and
+                                    Conciliation Act, 1996 or any statutory modification or re-enactment thereof or any
+                                    rules made thereof.</li>
+                            </ol>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div style="page-break-before: always;margin-top: 30px;"></div>
+            <div class="main-heading2 ">
+                <h1 class="company-name">Name of the Company</h1>
+                <div class="sub-heading signature">
+                    <p>Signature: <span style="color: white !important;">/sn1/</span></p>
+                </div>
+            </div>
+            <div class="Date-time">
+                <div class="customer sub-heading">
+                    Name of the Customer
+                </div>
+                <div>
+                    <p> <span class="sub-heading">Date: </span> {{now "date"}}</p>
+                </div>
+                <div>
+                    <p> <span class="sub-heading">Time: </span>{{now "time"}}</p>
+                </div>
+            </div>
+            <!-- ******** TERMS AND CONDITION ********* -->
+            <div class="bottom-content footer">
+                <div class="flex2">
+                    <div>
+                        <span>
+                            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_74_5329)">
+                                    <path
+                                        d="M4 0.75C3.35721 0.75 2.72886 0.940609 2.1944 1.29772C1.65994 1.65484 1.24338 2.16242 0.997393 2.75628C0.751408 3.35014 0.687047 4.00361 0.812449 4.63404C0.937851 5.26448 1.24738 5.84358 1.7019 6.2981C2.15643 6.75262 2.73552 7.06215 3.36596 7.18755C3.9964 7.31295 4.64986 7.24859 5.24372 7.00261C5.83758 6.75662 6.34516 6.34006 6.70228 5.8056C7.05939 5.27114 7.25 4.64279 7.25 4C7.24909 3.13833 6.90639 2.3122 6.29709 1.70291C5.6878 1.09361 4.86168 0.75091 4 0.75ZM4 6.75C3.4561 6.75 2.92442 6.58872 2.47218 6.28654C2.01995 5.98437 1.66747 5.55488 1.45933 5.05238C1.25119 4.54988 1.19673 3.99695 1.30284 3.4635C1.40895 2.93005 1.67086 2.44005 2.05546 2.05546C2.44005 1.67086 2.93006 1.40895 3.4635 1.30284C3.99695 1.19673 4.54988 1.25119 5.05238 1.45933C5.55488 1.66747 5.98437 2.01995 6.28654 2.47218C6.58872 2.92442 6.75 3.4561 6.75 4C6.74917 4.72909 6.45918 5.42808 5.94363 5.94363C5.42809 6.45918 4.72909 6.74917 4 6.75ZM3 4C3 4.20988 3.06604 4.41444 3.18876 4.58471C3.31148 4.75498 3.48466 4.88231 3.68377 4.94868C3.88289 5.01505 4.09783 5.01709 4.29817 4.95451C4.4985 4.89193 4.67407 4.76791 4.8 4.6C4.83983 4.54696 4.89909 4.51191 4.96476 4.50256C5.03042 4.49321 5.09711 4.51033 5.15016 4.55016C5.2032 4.58998 5.23825 4.64924 5.2476 4.71491C5.25695 4.78058 5.23983 4.84727 5.2 4.90031C5.01106 5.1521 4.7477 5.33806 4.44721 5.43186C4.14672 5.52566 3.82433 5.52255 3.52571 5.42296C3.22709 5.32338 2.96736 5.13237 2.78332 4.87699C2.59927 4.6216 2.50024 4.31479 2.50024 4C2.50024 3.68521 2.59927 3.3784 2.78332 3.12301C2.96736 2.86763 3.22709 2.67662 3.52571 2.57704C3.82433 2.47745 4.14672 2.47434 4.44721 2.56814C4.7477 2.66194 5.01106 2.8479 5.2 3.09969C5.21972 3.12595 5.23407 3.15584 5.24224 3.18765C5.25041 3.21947 5.25223 3.25257 5.2476 3.28509C5.24297 3.3176 5.23198 3.34889 5.21526 3.37716C5.19855 3.40543 5.17642 3.43012 5.15016 3.44984C5.12389 3.46956 5.094 3.48392 5.06219 3.49208C5.03038 3.50025 4.99727 3.50207 4.96476 3.49744C4.93224 3.49281 4.90096 3.48183 4.87269 3.46511C4.84442 3.44839 4.81972 3.42626 4.8 3.4C4.67407 3.23209 4.4985 3.10807 4.29817 3.04549C4.09783 2.98291 3.88289 2.98495 3.68377 3.05132C3.48466 3.11769 3.31148 3.24502 3.18876 3.41529C3.06604 3.58556 3 3.79012 3 4Z"
+                                        fill="#1E2122" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_74_5329">
+                                        <rect width="8" height="8" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            2024 Sify Infinit Spaces Limited. All Rights Reserved.</span>
+
+                    </div>
+                    <div>
+                        <span></span>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>

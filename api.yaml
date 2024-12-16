@@ -1,0 +1,638 @@
+swagger: "2.0"
+info:
+  title: One Sify Crossconnect Domestic API
+  description: Crossconnect Domestic API
+  version: 1.0.1
+  basePath: '/onesify/crossconnect-domestic/v1/docs'
+  contact:
+    email: yuvaraj.subramanian@sifycorp.com, gomathi.sitaram@sifycorp.com
+    name: Yuvaraj S , Vijaya Kumar D
+  servers:
+    -url: "http://localhost:4026"
+    description: This is Development Server
+
+schemes: [http, https]
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+security: [{ "Bearer": [] }]
+
+paths:
+
+  /onesify/crossconnect_domestic/new_connection/get_dc_details:
+    get:
+      tags:
+      - New Connection
+      summary: List Locations & contract period
+      responses:
+        200:
+          description: Success
+  /onesify/crossconnect_domestic/new_connection/post_dc_details:
+    post:
+      tags:
+      - New Connection
+      summary: post_dc_details
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+      - in: body
+        name: Crossconnect Domestic
+        schema:
+          type: object
+          properties:
+            reqId:
+              type: integer
+              example: 0
+            location:
+              type: string
+              example: "Bengaluru"
+            contractPeriod:
+              type: string
+              example: "4 Years"
+            companyName:
+              type: string
+              example: "Kst Infotech"
+            companyId:
+              type: string
+              example: "6386036aeb512c0e4c29b891"
+            ebsAccountNo:
+              type: string
+              example: 1006
+            userId:
+              type: string
+              example: "6386036aeb512c0e4c29b891"
+      responses:
+        201:
+          description: Created
+  /onesify/crossconnect_domestic/new_connection/delete_product:
+    post:
+      tags:
+      - New Connection
+      summary: delete_product
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+      - in: body
+        name: Crossconnect Domestic
+        schema:
+          type: object
+          properties:
+            reqId:
+              type: integer
+              example: 0
+            product:
+              type: string
+              example: "Ethernet"
+      responses:
+        201:
+          description: Created        
+  /onesify/crossconnect_domestic/new_connection/get_amount:
+    post:
+      tags:
+      - New Connection
+      summary: get_amount
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+      - in: body
+        name: Crossconnect Domestic
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              example: "Fiber"
+            location:
+              type: string
+              example: "Bengaluru"
+            quantity:
+              type: integer
+              example: 1
+      responses:
+        201:
+          description: Created
+  /onesify/crossconnect_domestic/new_connection/get_amount:
+    post:
+      tags:
+      - New Connection
+      summary: get_amount
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+      - in: body
+        name: Crossconnect Domestic
+        schema:
+          type: object
+          properties:
+            type:
+              type: string
+              example: "Fiber"
+            location:
+              type: string
+              example: "Bengaluru"
+            quantity:
+              type: integer
+              example: 1
+      responses:
+        201:
+          description: Created        
+  /onesify/crossconnect_domestic/new_connection/delete_details:
+    post:
+      tags:
+        - New Connection
+      summary: delete_details
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: crossconnect
+          schema:
+            type: object
+            properties:
+              reqId:
+                type: integer
+                example: 100000
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success        
+  /onesify/crossconnect_domestic/common/get_quote:
+    post:
+      tags:
+      - Common
+      summary: get_quote
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+      - in: body
+        name: Crossconnect Domestic
+        schema:
+          type: object
+          properties:
+            reqId:
+              type: integer
+              example: 1000
+      responses:
+        201:
+          description: Created
+  /onesify/crossconnect_domestic/common/get_quote_list:
+    post:
+      tags:
+        - Common
+      summary: get_quote_list
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: crossconnect_domestic
+          schema:
+            type: object
+            properties:
+              limit: 
+                type: integer
+                example: 1
+              page: 
+                type: integer
+                example: 1
+              searchKeyword: 
+                type: string
+                example: Chennai
+              companyId:
+                type: string
+                example: "6386036aeb512c0e4c29b891"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success 
+
+  /onesify/crossconnect_domestic/common/get_quote_summary:
+    post:
+      tags:
+        - Common
+      summary: get_quote_summary
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success 
+
+  /onesify/crossconnect_domestic/new_connection/quote_submit/{reqId}:
+    post:
+      tags:
+        - New Connection
+      summary: quote_submit
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: reqId
+          schema:
+            type: string
+            example: "100001"
+      security:
+        - Bearer: []
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/new_connection/post_amount:
+    post:
+      tags:
+        - plan
+      summary: post_plan_details
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: Crossconnect 
+          schema:
+            $ref: '#/_definitions/PlanDetails'
+      security:
+        - Bearer: []
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/bill_and_ship/get_address_info:
+    post:
+      tags:
+        - bill_and_ship
+      summary: get_address_info
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: coloInternet
+          schema:
+            type: object
+            properties:
+              reqId:
+                type: integer
+                example: 100000
+              ebsAccountNo:
+                type: string
+                example: 1006
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/bill_and_ship/get_address_list:
+    post:
+      tags:
+        - bill_and_ship
+      summary: get_address_list
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: coloInternet
+          schema:
+            type: object
+            properties:
+              stateName:
+                type: string
+                example: "Kerala"
+              ebsaccountNo:
+                type: string
+                example: "1006"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/bill_and_ship/post_new_address:
+    post:
+      tags:
+        - bill_and_ship
+      summary: post_new_address
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: crossconnect Domestic
+          schema:
+            type: object
+            properties:
+              reqId:
+                type: integer
+                example: 100000
+              ebsAccountNo:
+                type: string
+                example: "1234"
+              isPoNo:
+                type: boolean
+                example: true
+              poRefNo:
+                type: string
+                example: "PO1234"
+              poDate:
+                type: string
+                example: ""
+              shipToGst:
+                type: string
+                example: "33AFKPY1234A1AB"
+              hasShipToGst:
+                type: boolean
+                example: true
+              billingAddress:
+                type: object
+                properties:
+                  billToAddressType:
+                    type: string
+                    example: "existing"
+                  siteCode:
+                    type: string
+                    example: ""
+                  email:
+                    type: string
+                    example: yuvaraj.subramanian@sifycorp.com
+                  siteUseId:
+                    type: string
+                    example: 6181275
+                  orgId:
+                    type: string
+                    example: 425
+                  address1:
+                    type: string
+                    example: 2nd Floor, Railway Station Road
+                  address2:
+                    type: string
+                    example: Alandhur
+                  city:
+                    type: string
+                    example: Chennai
+                  state:
+                    type: string
+                    example: Tamil Nadu
+                  fullAddress:
+                    type: string
+                    example: 2nd Floor, Railway Station Road,Alandhur,chennai,Tamil Nadu
+                  pinCode:
+                    type: string
+                    example: "600016"
+                  gstNo:
+                    type: string
+                    example: 33AFKPY1234A1AB
+                  remarks:
+                    type: string
+                    example: ""
+                  isComplete:
+                    type: boolean
+                    example: true
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/docusign/get_po_doc/{reqId}:
+    get:
+      tags:
+        - docu_sign
+      summary: get_pd_doc
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: reqId
+          schema:
+            type: string
+            example: "CCD-SO-100001"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/docusign/view_po_doc/{reqId}:
+    get:
+      tags:
+        - docu_sign
+      summary: view_pd_doc
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: reqId
+          schema:
+            type: string
+            example: "CCD-SO-100001"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/docusign/view_proposal_doc/{reqId}:
+    get:
+      tags:
+        - docu_sign
+      summary: get_pd_doc
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: reqId
+          schema:
+            type: string
+            example: "CCD-PO-100001"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+  /onesify/crossconnect_domestic/docusign/get_proposal_doc/{reqId}:
+    get:
+      tags:
+        - docu_sign
+      summary: view_pd_doc
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: path
+          name: reqId
+          schema:
+            type: string
+            example: "CCD-PO-100001"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+
+  /onesify/crossconnect_domestic/mail/send_mail_to_sign:
+    post:
+      tags:
+        - Mail
+      summary: send_mail_to_sign
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: crossconnect
+          schema:
+            type: object
+            properties:
+              reqId:
+                type: integer
+                example: 100000
+              to:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: "abi"
+                    mail:
+                      type: string
+                      example: "abcd@gmail.com"
+              cc:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: "abi"
+                    mail:
+                      type: string
+                      example: "abcd@gmail.com"
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      security: [{ "Bearer": [] }]
+      responses:
+        201:
+          description: Success
+
+
+_definitions:
+  PlanDetails:
+    type: object
+    properties:
+      reqId:
+        type: integer
+        example: 100000
+      planDetails:
+        type: array
+        items:
+          oneOf:
+            - $ref: '#/_definitions/Object1'
+            - $ref: '#/_definitions/Object2'
+
+  Object1:
+    type: object
+    properties:
+      type:
+        type: string
+        example: "Fiber"
+      arc:
+        type: integer
+        example: 20000
+      otc:
+        type: integer
+        example: 20000
+      quantity:
+        type: integer
+        example: 1
+      # Add more properties as needed
+
+  Object2:
+    type: object
+    properties:
+      type:
+        type: string
+        example: "Ethernet"
+      arc:
+        type: integer
+        example: 100000
+      otc:
+        type: integer
+        example: 100000
+      quantity:
+        type: integer
+        example: 1
+      # Add more properties as needed
